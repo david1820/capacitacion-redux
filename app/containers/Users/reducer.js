@@ -12,6 +12,7 @@ import {
 
 const initialState = fromJS({
   open: false,
+  id: '59b365c648f9f73a429d8261',
 });
 
 function usersReducer(state = initialState, action) {

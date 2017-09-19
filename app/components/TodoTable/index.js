@@ -20,7 +20,7 @@ class TodoTable extends React.PureComponent { // eslint-disable-line react/prefe
     onCheckItem(index);
   }
   render() {
-    const { todos } = this.props;
+    const { todos, onPressEdit } = this.props;
     const items = todos.map(({ titulo, descripcion, isDone }, index) => (
       <TodoItem
         key={index}
@@ -28,6 +28,7 @@ class TodoTable extends React.PureComponent { // eslint-disable-line react/prefe
         titulo={titulo}
         descripcion={descripcion}
         isDone={isDone}
+        onPressEdit={() => onPressEdit(index)}
       />
     ));
     return (
@@ -49,6 +50,7 @@ class TodoTable extends React.PureComponent { // eslint-disable-line react/prefe
 TodoTable.propTypes = {
   onCheckItem: PropTypes.func,
   todos: PropTypes.arrayOf(PropTypes.object),
+  onPressEdit: PropTypes.func,
 };
 
 TodoTable.defaultProps = {

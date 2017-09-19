@@ -17,6 +17,7 @@ function TodoHeader() {
       <TableHeaderColumn>Titulo</TableHeaderColumn>
       <TableHeaderColumn>Descripcion</TableHeaderColumn>
       <TableHeaderColumn>Estado</TableHeaderColumn>
+      <TableHeaderColumn>Editar</TableHeaderColumn>
     </TableRow>
   );
 }

@@ -1,6 +1,6 @@
 /**
 *
-* DialogNewUser
+* DialogNewTodo
 *
 */
 
@@ -10,8 +10,8 @@ import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 
-function DialogNewUser({ open, onPressClose, onPressSave, onPressEdit, onChange, name, email, birthday, edit }) {
-  const buttonAction = edit ? onPressEdit : onPressSave;
+function DialogNewTodo({ open, onPressClose, onPressSave, onPressEditSave, onChange, edit, title, description }) {
+  const buttonAction = edit ? onPressEditSave : onPressSave;
 
   const actions = [
     <FlatButton
@@ -28,7 +28,7 @@ function DialogNewUser({ open, onPressClose, onPressSave, onPressEdit, onChange,
   ];
   return (
     <Dialog
-      title="Usuario"
+      title="Todo"
       actions={actions}
       modal={false}
       open={open}
@@ -36,22 +36,16 @@ function DialogNewUser({ open, onPressClose, onPressSave, onPressEdit, onChange,
     >
       <div>
         <TextField
-          id="name"
-          hintText="Nombre"
-          value={name}
+          id="titulo"
+          hintText="Titulo"
+          value={title}
           style={{ marginRight: 16 }}
           onChange={(e) => onChange(e)}
         />
         <TextField
-          id="email"
-          hintText="Correo"
-          value={email}
-          onChange={(e) => onChange(e)}
-        />
-        <TextField
-          id="birthday"
-          hintText="Cumpleaños"
-          value={birthday}
+          id="descripcion"
+          hintText="descripcion"
+          value={description}
           onChange={(e) => onChange(e)}
         />
       </div>
@@ -59,25 +53,21 @@ function DialogNewUser({ open, onPressClose, onPressSave, onPressEdit, onChange,
   );
 }
 
-DialogNewUser.propTypes = {
+DialogNewTodo.propTypes = {
   open: PropTypes.bool,
   onPressClose: PropTypes.func,
   onPressSave: PropTypes.func,
-  onPressEdit: PropTypes.func,
+  onPressEditSave: PropTypes.func,
   onChange: PropTypes.func,
-  name: PropTypes.string,
-  email: PropTypes.string,
-  birthday: PropTypes.string,
   edit: PropTypes.bool,
+  title: PropTypes.string,
+  description: PropTypes.string,
 };
 
-DialogNewUser.defaultProps = {
+DialogNewTodo.defaultProps = {
   onPressClose: () => {},
   onPressSave: () => {},
-  name: '',
-  email: '',
-  birthday: '',
   edit: false,
 };
 
-export default DialogNewUser;
+export default DialogNewTodo;

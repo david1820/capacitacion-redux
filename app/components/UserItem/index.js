@@ -20,6 +20,8 @@ function TodoItem({ nombre, correo, fechaNacimiento, onPressEdit }) {
       <TableRowColumn>{correo}</TableRowColumn>
       <TableRowColumn>{fechaNacimiento}</TableRowColumn>
       <TableRowColumn>
+      </TableRowColumn>
+      <TableRowColumn>
         <IconButton onTouchTap={onPressEdit}>
           <EditIcon />
         </IconButton>

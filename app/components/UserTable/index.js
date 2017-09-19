@@ -6,6 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import CircularProgress from 'material-ui/CircularProgress';
 import UserItem from 'components/UserItem';
 import UserHeader from 'components/UserHeader';
 import {
@@ -16,7 +17,12 @@ import {
 
 class TodoTable extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { users, onPressEdit } = this.props;
+    const { users, onPressEdit, isLoading } = this.props;
+    if (isLoading) {
+      return (
+        <CircularProgress />
+      );
+    }
     const items = users.map(({ id, nombre, correo, fechaNacimiento }, index) => (
       <UserItem
         key={index}
@@ -45,6 +51,7 @@ class TodoTable extends React.PureComponent { // eslint-disable-line react/prefe
 TodoTable.propTypes = {
   users: PropTypes.arrayOf(PropTypes.object),
   onPressEdit: PropTypes.func,
+  isLoading: PropTypes.bool,
 };
 
 TodoTable.defaultProps = {
